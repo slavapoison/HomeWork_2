@@ -19,6 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenValueLabel: UILabel!
     @IBOutlet weak var blueValueLabel: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewColor.layer.cornerRadius = 10
+    }
+    
     @IBAction func redSliderAction() {
         changeColor()
         redValueLabel.text = String(format: "%.2f", redSlider.value)
@@ -34,11 +39,6 @@ class ViewController: UIViewController {
         blueValueLabel.text = String(format: "%.2f", blueSlider.value)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewColor.layer.cornerRadius = 10
-    }
-
     func changeColor() {
         viewColor.backgroundColor = .init(displayP3Red: CGFloat(redSlider.value),
                                           green: CGFloat(greenSlider.value),
