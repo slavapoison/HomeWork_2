@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var ViewColor: UIView!
+    @IBOutlet weak var viewColor: UIView!
     
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
@@ -21,26 +21,26 @@ class ViewController: UIViewController {
     
     @IBAction func redSliderAction() {
         changeColor()
-        redValueLabel.text = String(redSlider.value)
+        redValueLabel.text = String(format: "%.2f", redSlider.value)
     }
     
     @IBAction func greenSliderAction() {
         changeColor()
-        greenValueLabel.text = String(greenSlider.value)
+        greenValueLabel.text = String(format: "%.2f", greenSlider.value)
     }
     
     @IBAction func blueSliderAction() {
         changeColor()
-        blueValueLabel.text = String(blueSlider.value)
+        blueValueLabel.text = String(format: "%.2f", blueSlider.value)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        viewColor.layer.cornerRadius = 10
     }
 
     func changeColor() {
-        ViewColor.backgroundColor = .init(displayP3Red: CGFloat(redSlider.value),
+        viewColor.backgroundColor = .init(displayP3Red: CGFloat(redSlider.value),
                                           green: CGFloat(greenSlider.value),
                                           blue: CGFloat(blueSlider.value),
                                           alpha: CGFloat(1))
